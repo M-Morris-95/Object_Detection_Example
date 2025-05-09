@@ -9,10 +9,8 @@ class VideoPlayer(LifecycleComponent):
         super().__init__(node_name, *args, **kwargs)
 
         self.video_path = ''
-        self.is_rgb = True
 
         self.add_parameter(sr.Parameter('video_path', sr.ParameterType.STRING), "Path to the video file.")     
-        self.add_parameter(sr.Parameter('is_rgb', sr.ParameterType.BOOL), "Video is RGB?")
 
         self.video_feed = None
         self.add_output("video_feed", "video_feed", SensorImage)
@@ -53,9 +51,6 @@ class VideoPlayer(LifecycleComponent):
             if not ret:
                 self.get_logger().error("Failed to read video frame after rewind")
                 return
-            
-        if self.get_parameter_value("is_rgb"):
-            frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
         self.video_feed = self._cv_bridge.cv2_to_imgmsg(frame, encoding="bgr8")
 

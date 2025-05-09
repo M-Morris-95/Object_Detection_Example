@@ -14,14 +14,6 @@
       "parameter_name": "video_path",
       "parameter_type": "string",
       "default_value": ""
-    },
-    {
-      "display_name": "Video is RGB?",
-      "description": "",
-      "parameter_name": "is_rgb",
-      "parameter_type": "bool",
-      "default_value": "true",
-      "dynamic": true
     }
   ],
   "outputs": [
