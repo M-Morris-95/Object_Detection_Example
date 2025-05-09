@@ -1,0 +1,83 @@
+{
+  "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
+  "name": "YOLO to marker",
+  "description": {
+    "brief": "Reads bounding boxes and outputs an interactive marker",
+    "details": "TODO."
+  },
+  "registration": "component_utils::YoloToMarker",
+  "inherits": "modulo_components::LifecycleComponent",
+  "inputs": [
+    {
+      "display_name": "Json Input",
+      "description": "",
+      "signal_name": "json_input",
+      "signal_type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "display_name": "State command",
+      "description": "The state command",
+      "signal_name": "state_command",
+      "signal_type": "cartesian_state"
+    }
+  ],
+  "parameters": [
+    {
+      "display_name": "Thing to track",
+      "description": "The object to track",
+      "parameter_name": "to_find",
+      "parameter_type": "string",
+      "default_value": null
+    },
+    {
+      "display_name": "FoV X",
+      "description": "Camera FoV in X",
+      "parameter_name": "fov_x",
+      "parameter_type": "double",
+      "default_value": 69.0,
+      "dynamic": true
+    },
+    {
+      "display_name": "FoV Y",
+      "description": "Camera FoV in Y",
+      "parameter_name": "fov_y",
+      "parameter_type": "double",
+      "default_value": 42.0,
+      "dynamic": true
+    },
+    {
+      "display_name": "Start Pos X",
+      "description": "Centre position of camera (x)",
+      "parameter_name": "start_pos_x",
+      "parameter_type": "double",
+      "default_value": 0.0,
+      "dynamic": true
+    },
+    {
+      "display_name": "Start Pos Y",
+      "description": "Centre position of camera (y)",
+      "parameter_name": "start_pos_y",
+      "parameter_type": "double",
+      "default_value": 0.6,
+      "dynamic": true
+    },
+    {
+      "display_name": "Camera Height",
+      "description": "Centre position of camera (z)",
+      "parameter_name": "camera_height",
+      "parameter_type": "double",
+      "default_value": 1.0,
+      "dynamic": true
+    },
+    {
+      "display_name": "Goal Z",
+      "description": "Target position (Z)",
+      "parameter_name": "goal_z",
+      "parameter_type": "double",
+      "default_value": 0.0,
+      "dynamic": true
+    }    
+  ]
+}

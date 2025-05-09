@@ -322,10 +322,6 @@ if [[ -f "${CMAKE_FILE}" ]]; then
         echo "Removing C++ lifecycle component registration..."
         sed_inplace '/Register CPPLifecycleComponent/,/COMPONENTS cpp_lifecycle_component)/d' "${CMAKE_FILE}"
       fi
-      if [[ "${INCLUDE_PYTHON}" == "no" ]]; then
-        echo "Removing ament_python_install_package() from CMakeLists.txt..."
-        sed_inplace '/ament_python_install_package\s*(.*)/d' "${CMAKE_FILE}"
-      fi
     fi
   fi
 fi

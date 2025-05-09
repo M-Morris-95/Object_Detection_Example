@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.aica.tech/schemas/1-1-1/component.schema.json",
+  "name": "Video Player Component",
+  "description": {
+    "brief": "outputs a video as if it is a camera",
+    "details": "Detailed description of the component."
+  },
+  "registration": "component_utils::VideoPlayer",
+  "inherits": "modulo_components::LifecycleComponent",
+  "parameters": [
+    {
+      "display_name": "Video Path",
+      "description": "Path to the video file.",
+      "parameter_name": "video_path",
+      "parameter_type": "string",
+      "default_value": ""
+    },
+    {
+      "display_name": "Video is RGB?",
+      "description": "",
+      "parameter_name": "is_rgb",
+      "parameter_type": "bool",
+      "default_value": "true",
+      "dynamic": true
+    }
+  ],
+  "outputs": [
+    {
+      "display_name": "Video Feed",
+      "description": "The image  with bounding segmentation information drawn on it.",
+      "signal_name": "video_feed",
+      "signal_type": "other",
+      "custom_signal_type": "sensor_msgs::msg::Image"
+    }
+  ]
+}
