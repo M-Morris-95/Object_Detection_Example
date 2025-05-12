@@ -32,44 +32,18 @@
       "default_value": null
     },
     {
+      "display_name": "Camera Position",
+      "description": "Where the camera is, quarternion, world view",
+      "parameter_name": "camera_position",
+      "parameter_type": "double_array",
+      "default_value": [0, 0.6, 0.6, 0,0,0,0]
+    },
+    {
       "display_name": "FoV X",
       "description": "Camera FoV in X",
-      "parameter_name": "fov_x",
-      "parameter_type": "double",
-      "default_value": 69.0,
-      "dynamic": true
-    },
-    {
-      "display_name": "FoV Y",
-      "description": "Camera FoV in Y",
-      "parameter_name": "fov_y",
-      "parameter_type": "double",
-      "default_value": 42.0,
-      "dynamic": true
-    },
-    {
-      "display_name": "Start Pos X",
-      "description": "Centre position of camera (x)",
-      "parameter_name": "start_pos_x",
-      "parameter_type": "double",
-      "default_value": 0.0,
-      "dynamic": true
-    },
-    {
-      "display_name": "Start Pos Y",
-      "description": "Centre position of camera (y)",
-      "parameter_name": "start_pos_y",
-      "parameter_type": "double",
-      "default_value": 0.6,
-      "dynamic": true
-    },
-    {
-      "display_name": "Camera Height",
-      "description": "Centre position of camera (z)",
-      "parameter_name": "camera_height",
-      "parameter_type": "double",
-      "default_value": 1.0,
-      "dynamic": true
+      "parameter_name": "fov",
+      "parameter_type": "double_array",
+      "default_value": [69.0, 42]
     },
     {
       "display_name": "Goal Z",
