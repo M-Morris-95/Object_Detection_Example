@@ -3,55 +3,55 @@
   "name": "YOLO to marker",
   "description": {
     "brief": "Reads bounding boxes and outputs an interactive marker",
-    "details": "TODO."
+    "details": "This component receives YOLO object detection outputs in JSON format, identifies a specified target object, and converts its bounding box coordinates into a 3D Cartesian pose relative to the camera frame. The pose is computed assuming a fixed distance from the camera and using the camera's field of view and image resolution. If the target object is detected, its 3D position is output as an interactive marker pose."
   },
   "registration": "component_utils::YoloToMarker",
   "inherits": "modulo_components::LifecycleComponent",
   "inputs": [
     {
       "display_name": "Json Input",
-      "description": "",
+      "description": "Bounding boxes from YOLO model",
       "signal_name": "json_input",
       "signal_type": "string"
     }
   ],
   "outputs": [
     {
-      "display_name": "State command",
-      "description": "The state command",
-      "signal_name": "state_command",
+      "display_name": "Pose Command",
+      "description": "The pose command",
+      "signal_name": "marker_pose",
       "signal_type": "cartesian_state"
     }
   ],
   "parameters": [
     {
-      "display_name": "Thing to track",
-      "description": "The object to track",
+      "display_name": "Object to Track",
+      "description": "The name of the object to track, matching a class from the YOLO model.",
       "parameter_name": "to_find",
       "parameter_type": "string",
-      "default_value": null
+      "default_value": "person"
     },
     {
-      "display_name": "Camera Position",
-      "description": "Where the camera is, quarternion, world view",
-      "parameter_name": "camera_position",
-      "parameter_type": "double_array",
-      "default_value": [0, 0.6, 0.6, 0,0,0,0]
-    },
-    {
-      "display_name": "FoV X",
-      "description": "Camera FoV in X",
+      "display_name": "Field of View (FoV)",
+      "description": "Camera field of view in degrees [horizontal, vertical]",
       "parameter_name": "fov",
       "parameter_type": "double_array",
-      "default_value": [69.0, 42]
+      "default_value": [69.0, 42.0]
     },
     {
-      "display_name": "Goal Z",
-      "description": "Target position (Z)",
-      "parameter_name": "goal_z",
+      "display_name": "Image Size",
+      "description": "Image resolution [width, height] in pixels",
+      "parameter_name": "image_size",
+      "parameter_type": "double_array",
+      "default_value": [840, 480]
+    },
+    {
+      "display_name": "Object Distance",
+      "description": "Assumed distance from the camera to the object in meters",
+      "parameter_name": "object_distance",
       "parameter_type": "double",
-      "default_value": 0.0,
+      "default_value": 0.6,
       "dynamic": true
-    }    
+    }
   ]
 }
